@@ -3,7 +3,7 @@
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Gestione albo</a>
+  <a class="navbar-brand" href="index.php">Gestione albo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,7 +16,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="aggiungi_iscritto.php">Aggiungi iscritto</a>
-          <a class="dropdown-item" href="#">Gestisci iscritti</a>
+          <a class="dropdown-item" href="gestisci_iscritti_lista.php">Gestisci iscritti</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Cerca iscritto</a>
         </div>
@@ -26,10 +26,8 @@
           Pagamenti
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="gestione_pagamenti.php">Gestisci pagamenti</a>
+          
         </div>
       </li>
       <li class="nav-item dropdown">

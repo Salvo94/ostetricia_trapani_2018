@@ -12,6 +12,9 @@
 					<br>
 					<br>
 					<br>
+					<img class="img-responsive" src="img/logo_collegio.jpg">
+					<br>
+					<br>
 					<h4> Per utilizzare il gestionale si prega di effettuare l'accesso </h4>
 					
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">

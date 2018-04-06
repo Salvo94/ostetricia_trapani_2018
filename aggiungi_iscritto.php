@@ -13,7 +13,7 @@
 					<br>
 				</div>
 			</div>
-			<form>
+			<form method="post" action="aggiungi_iscritto_query.php">
 			
 			<div class="row">
 			
@@ -155,12 +155,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="form-group">
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1"><i class="fas fa-book"></i></span>
-							</div>
-								<input type="number" class="form-control" id="numero-iscrizione" aria-describedby="nazione" placeholder="Numero iscrizione" required>
-						</div>
+						
 					</div>
 				</div>
 			</div>
