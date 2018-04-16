@@ -21,28 +21,34 @@
 						<th> N. iscrizione </th>
 						<th> Nome </th>
 						<th> Cognome </th>
-						<th> Data quota </th>
+						<th> Cod. fisc. </th>
+						<th> Annualità </th>
 						<th> Data pagamento </th>
 						<th class="text-center"> Pagato </th>
 						<th class="text-center"> Gestisci pagamento </th>
+						<th class="text-center"> Morosità </th>
 					</tr>
 					<tr>
 						<td> 12345 </td>
 						<td> Mario  </td>
 						<td> Rossi </td>
-						<td> 11/05/2017 </td>
+						<td> RSSMRA80A01H501U </td>
+						<td> 2017 </td>
 						<td> 13/05/2017 </td>
 						<td class="text-center">  <i class="far fa-check-square text-success"> </i></td>
+						<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#modifica_pagamento"> <i class="fas fa-edit"> </i> </a> </td>
 						<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#modifica_pagamento"> <i class="fas fa-edit"> </i> </a> </td>
 					</tr>
 					<tr>
 						<td> 12347 </td>
 						<td> Giuseppe</td>
 						<td> Bianchi </td>
-						<td> 11/05/2017 </td>
+						<td> MRRBIA80A01H501U </td>
+						<td> 2017 </td>
 						<td> -  </td>
 						<td class="text-center">  <i class="far fa-square text-danger"> </i></td>
 						<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-edit"> </i> </a> </td>
+						<td class="text-center"> - </td>
 					</tr>
 				</table>
 					

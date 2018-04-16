@@ -19,6 +19,8 @@
           <a class="dropdown-item" href="gestisci_iscritti_lista.php">Gestisci iscritti</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Cerca iscritto</a>
+		  <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Storico iscritti</a>
         </div>
       </li>
 	  <li class="nav-item dropdown">
@@ -35,7 +37,7 @@
           Trasfermimenti
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Gestisci trasferimenti</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
