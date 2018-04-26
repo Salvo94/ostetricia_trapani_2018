@@ -31,7 +31,15 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-id-card"></i></span>
 							</div>
-								<input type="text"  minlength="16" maxlength="16"  size="16" class="form-control" id="codfisc" aria-describedby="codfisc" placeholder="Codice fiscale" required>
+								<input type="text"  minlength="16" maxlength="16"  size="16" class="form-control" id="codfisc" aria-describedby="codfisc" placeholder="Codice fiscale" name="codice_fiscale" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marker"> </i></span>
+							</div>
+								<input type="text" class="form-control" id="comune_nascita"  aria-describedby="comune_nascita" placeholder="Comune di nascita" name="comune_nascita" required>
 						</div>
 					</div>
 				</div>
@@ -42,7 +50,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
 							</div>
-								<input type="text" class="form-control" id="cognome" aria-describedby="cognome" placeholder="Cognome" required>
+								<input type="text" class="form-control" id="cognome" aria-describedby="cognome" placeholder="Cognome" name="cognome" required>
 						</div>
 					</div>	
 					<div class="form-group">
@@ -50,10 +58,17 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-birthday-cake"></i></span>
 							</div>
-								<input type="date" class="form-control" id="datanascita" aria-describedby="datanascita" required>
+								<input type="date" class="form-control" id="data_nascita" aria-describedby="data_nascita" name="data_nascita" required>
 						</div>
 					</div>
-					
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-flag"> </i></span>
+							</div>
+								<input type="text" class="form-control" id="cittadinanza"  aria-describedby="cittadinanza" placeholder="Cittadinanza"  name="cittadinanza" required>
+						</div>
+					</div>
 					
 				</div>
 			</div>
@@ -65,7 +80,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-home"></i></span>
 							</div>
-								<input type="text" class="form-control" id="indirizzo" aria-describedby="indirizzo" placeholder="Indirizzo" required>
+								<input type="text" class="form-control" id="indirizzo" aria-describedby="indirizzo" placeholder="Indirizzo" name="indirizzo" required>
 						</div>
 					</div>
 					<div class="form-group">
@@ -73,7 +88,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marker"></i></span>
 							</div>
-								<input type="number"  class="form-control" id="cap" aria-describedby="cap" placeholder="CAP" required>
+								<input type="number"  class="form-control" id="cap" aria-describedby="cap" placeholder="CAP" name="cap" required>
 						</div>
 					</div>
 					<div class="form-group">
@@ -81,7 +96,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-location-arrow"></i></span>
 							</div>
-								<input type="text" class="form-control" id="citta" aria-describedby="citta" placeholder="Città" required>
+								<input type="text" class="form-control" id="citta" aria-describedby="citta" placeholder="Città" name="citta" required>
 						</div>
 					</div>
 				</div>
@@ -91,7 +106,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-thumbtack"></i></span>
 							</div>
-								<input type="text" class="form-control" id="provincia" aria-describedby="provincia" placeholder="Provincia" required>
+								<input type="text" class="form-control" id="provincia" aria-describedby="provincia" placeholder="Provincia" name="provincia" required>
 						</div>
 					</div>
 					<div class="form-group">
@@ -99,7 +114,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-compass"></i></span>
 							</div>
-								<input type="text" class="form-control" id="regione" aria-describedby="regione" placeholder="Regione" required>
+								<input type="text" class="form-control" id="regione" aria-describedby="regione" placeholder="Regione" name="regione" required>
 						</div>
 					</div>
 					<div class="form-group">
@@ -107,7 +122,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-globe"></i></span>
 							</div>
-								<input type="text" class="form-control" id="nazione" aria-describedby="nazione" placeholder="Nazione" required>
+								<input type="text" class="form-control" id="nazione" aria-describedby="nazione" placeholder="Nazione" name="nazione" required>
 						</div>
 					</div>
 				</div>
@@ -120,7 +135,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-phone"></i></span>
 							</div>
-								<input type="number" class="form-control" id="fisso" aria-describedby="fisso" placeholder="Telefono fisso" >
+								<input type="number" class="form-control" id="fisso" aria-describedby="fisso" placeholder="Telefono fisso" name="telefono_fisso">
 						</div>
 					</div>
 					<div class="form-group">
@@ -128,7 +143,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
 							</div>
-								<input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email" >
+								<input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email" name="email" >
 						</div>
 					</div>
 				</div>
@@ -138,7 +153,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-mobile"></i></span>
 							</div>
-								<input type="number" class="form-control" id="cellulare" aria-describedby="cellulare" placeholder="Cellulare" >
+								<input type="number" class="form-control" id="cellulare" aria-describedby="cellulare" placeholder="Cellulare" name="telefono_cellulare" >
 						</div>
 					</div>
 					<div class="form-group">
@@ -146,7 +161,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"></i></span>
 							</div>
-								<input type="email" class="form-control" id="pec" aria-describedby="pec" placeholder="Pec" >
+								<input type="email" class="form-control" id="pec" aria-describedby="pec" placeholder="Pec" name="pec" >
 						</div>
 					</div>
 				</div>
@@ -155,28 +170,16 @@
 			<div class="row">
 				<div class="col">
 					<div class="form-group">
-						
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-users"></i></span>
+							</div>
+							<input type="number" class="form-control" id="numero_iscrizione" aria-describedby="numero_iscrizione" placeholder="Numero iscrizione" name="numero_iscrizione" required>
+						</div>
 					</div>
 				</div>
 			</div>
 			<br>
-			<!-- <div class="row">
-				<div class="col">
-					<div class="form-group">
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1"><i class="fas fa-camera"></i></span>
-							</div>
-								<input type="file"  class="form-control form-foto" id="foto" aria-describedby="foto" placeholder="Foto" required>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-								<button type="button" class="form-control btn-light pulsante-visualizza-foto" id="visualizza" aria-describedby="visualizza" > Visualizza foto </button>
-						</div>
-					</div>
-				</div>
-			</div> -->
 			<div class="row text-center">
 				<div class="col">
 				
@@ -187,7 +190,7 @@
 				<div class="col">
 					<div class="form-group">
 						<div class="input-group">
-								<input type="submit" class="form-control btn btn-primary" value = "INSERISCI ISCRITTO" required>
+								<input type="submit" class="form-control btn btn-primary" value = "INSERISCI ISCRITTO">
 						</div>
 					</div>
 				</div>

@@ -26,6 +26,7 @@
 						<th> Gestisci </th>
 						<th> Elimina </th>
 					</tr>
+					
 					<tr>
 						<td> 12345 </td>
 						<td> Mario  </td>
