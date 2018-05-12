@@ -14,3 +14,7 @@
 body{
 	padding-bottom:180px;
 }
+
+	  .ui-datepicker-calendar {
+			   display: none;
+			}

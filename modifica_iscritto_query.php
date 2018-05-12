@@ -1,7 +1,8 @@
-
 <?php
 	include "db_connessione.php";
-	
+	$id = $_POST['id'];
+	echo ($id);
+	echo ("<br>");
 	$nome = $_POST['nome'];
 	echo($nome);
 	echo("<br>");
@@ -54,15 +55,15 @@
 	echo($numero_iscrizione);
 	
 	//query
-	$sql = "INSERT INTO utenti (Nome, Cognome, Data_nascita, Comune_nascita,Cittadinanza,Cod_fiscale, Data_iscrizione,
-								Nazione, Regione,Citta,Provincia,Cap,Indirizzo,Tel_fisso,Cellulare,Email,Pec,Numero_iscrizione)
-			VALUES('".$nome."','".$cognome."','".$data_nascita."','".$comune_nascita."','".$cittadinanza."','".$codice_fiscale."', now() ,'".$nazione."',
-					'".$regione."','".$citta."','".$provincia."',".$cap.",'".$indirizzo."',".$telefono_fisso.",".$telefono_cellulare.",
-					'".$email."','".$pec."',".$numero_iscrizione.")";
+	$sql = "UPDATE utenti 
+			SET Nome = '".$nome."', Cognome = '".$cognome."', Cod_Fiscale = '".$codice_fiscale."', Data_Nascita = '".$data_nascita."',
+			Comune_nascita = '".$comune_nascita."', Cittadinanza = '".$cittadinanza."', Nazione = '".$nazione."', Regione = '".$regione."', 
+			Citta = '".$citta."', Provincia = '".$provincia."', Cap = ".$cap.", Indirizzo = '".$indirizzo."' , Tel_Fisso = ".$telefono_fisso.",
+			Cellulare = ".$telefono_cellulare.", Email = '".$email."', Pec = '".$pec."', Numero_iscrizione = '".$numero_iscrizione."' WHERE Id = ".$id."";
 	echo($sql);
 	$stmt = $dbh -> prepare($sql);
 	$stmt -> execute();
-	header("Location: gestisci_iscritti_lista.php");
+	//header("Location: gestisci_iscritto.php?id=".$id);	
 	
 	
 ?>
