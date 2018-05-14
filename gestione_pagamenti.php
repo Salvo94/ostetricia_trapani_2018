@@ -30,7 +30,7 @@
 						<th> Data pagamento </th>
 						<th class="text-center"> Pagato </th>
 						<th class="text-center"> Gestisci pagamento </th>
-						<th class="text-center"> Morosità </th>
+						
 					</tr>
 					<?php
 						include "db_connessione.php";
@@ -53,9 +53,55 @@
 												<td> '.$row['Anno'].' </td>
 												<td> '.$result['Data_pagamento'].' </td>
 												<td class="text-center">  <i class="far fa-check-square text-success"> </i></td>
-												<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#modifica_pagamento"> <i class="fas fa-edit"> </i> </a> </td>
-												<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#modifica_pagamento"> <i class="fas fa-edit"> </i> </a> </td>
-											</tr>');
+												<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#modifica_pagamento'.$result['Id'].'"> <i class="fas fa-edit"> </i> </a> </td>
+											</tr>
+											
+												<!-- Modal fade per modifica pagamento -->
+												<div class="modal fade" id="modifica_pagamento'.$result['Id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+												  <div class="modal-dialog" role="document">
+													<div class="modal-content">
+													  <div class="modal-header">
+														<h5 class="modal-title" id="exampleModalLabel">Modifica o elimina il pagamento</h5>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														  <span aria-hidden="true">&times;</span>
+														</button>
+													  </div>
+													  <div class="modal-body">			
+															<form method="post" action ="modifica_pagamento_query.php">
+																<input type="hidden" name="id_pagamento" value="'.$result['Id'].'">
+																<label> <i> *Modifica la data del pagamento </i> </label>
+																<div class="form-group">
+																	<div class="input-group">
+																		<div class="input-group-prepend">
+																			<span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
+																		</div>
+																	<input type="date" value="'.$result['Data_pagamento'].'" class="form-control" id="data_pagamento" name="data_pagamento" aria-describedby="data_pagamento" placeholder="Data pagamento" required>
+																</div>
+																</div>		
+															
+													  </div>
+													  <div class="modal-footer">
+														<div class="row">
+															<div class="col-md-6">
+																<input type="submit" class="btn btn-primary" value="Modifica il pagamento">
+																</form>
+															</div>
+															<div class="col-md-6">
+																<form method="post" action="elimina_pagamento_query.php">
+																<input type="hidden" value="'.$result['Id'].'" name="id_pagamento" >
+															<input type="submit" class="btn btn-danger" value="Elimina il pagamento"s>
+																</form>
+															</div>
+														</div>
+															
+														
+													  </div>
+													</div>
+												  </div>
+												</div>
+																					
+											
+											');
 									}
 									else
 									{
@@ -67,8 +113,40 @@
 												<td> '.$row['Anno'].' </td>
 												<td> -  </td>
 												<td class="text-center">  <i class="far fa-square text-danger"> </i></td>
-												<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-edit"> </i> </a> </td>
-												<td class="text-center"> - </td>
+												<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#aggiungiPagamento'.$result['Id'].'"> <i class="fas fa-edit"> </i> </a> </td>
+												<!-- modal fade per inserimento pagamento-->
+													<div class="modal fade" id="aggiungiPagamento'.$result['Id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+												  <div class="modal-dialog" role="document">
+													<div class="modal-content">
+													  <div class="modal-header">
+														<h5 class="modal-title" id="exampleModalLabel">Conferma il pagamento</h5>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														  <span aria-hidden="true">&times;</span>
+														</button>
+													  </div>
+													  <div class="modal-body">			
+															<form method="post" action ="aggiungi_pagamento_query.php"a>
+																<input type="hidden" name="id_utente" value="'.$id_utente_corrente.'">
+																<input type="hidden" name="id_annualita" value="'.$id_annualita_corrente.'">
+
+																<label> <i> *Inserisci la data del pagamento </i> </label>
+																<div class="form-group">
+																	<div class="input-group">
+																		<div class="input-group-prepend">
+																			<span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
+																		</div>
+																	<input type="date" class="form-control" id="data_pagamento" name="data_pagamento" aria-describedby="data_pagamento" placeholder="Data pagamento" required>
+																</div>
+																</div>		
+															
+													  </div>
+													  <div class="modal-footer">
+															<input type="submit" class="btn btn-primary" value="Aggiungi il pagamento"a>
+														</form>
+													  </div>
+													</div>
+												  </div>
+												</div>
 											</tr>');
 									}
 								
@@ -82,47 +160,7 @@
 			</div>
 		</div>
 		
-		<!-- Modal fade per modifica -->
-		<div class="modal fade" id="modifica_pagamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Modifica o elimina il pagamento</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				  <span aria-hidden="true">&times;</span>
-				</button>
-			  </div>
-			  <div class="modal-body">			
-					<form method="post" action ="modifica_pagamento_query.php"a>
-						<label> <i> *Modifica la data del pagamento </i> </label>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
-								</div>
-							<input type="date" value="2017-05-13" class="form-control" id="data_pagamento" aria-describedby="data_pagamento" placeholder="Data pagamento" required>
-						</div>
-						</div>		
-					
-			  </div>
-			  <div class="modal-footer">
-				<div class="row">
-					<div class="col-md-6">
-						<input type="submit" class="btn btn-primary" value="Modifica il pagamento">
-						</form>
-					</div>
-					<div class="col-md-6">
-						<form method="post" action="elimina_pagamento_query.php">
-					<input type="submit" class="btn btn-danger" value="Elimina il pagamento"s>
-						</form>
-					</div>
-				</div>
-					
-				
-			  </div>
-			</div>
-		  </div>
-		</div>
+		
 		<!-- modal fade per inserimento annualità -->
 			<div class="modal fade" id="inserisciAnnualita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
@@ -156,36 +194,8 @@
 		  </div>
 		</div>
 		
-		<!-- modal fade per inserimento -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Conferma il pagamento</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				  <span aria-hidden="true">&times;</span>
-				</button>
-			  </div>
-			  <div class="modal-body">			
-					<form method="post" action ="aggiungi_pagamento_query.php"a>
-						<label> <i> *Inserisci la data del pagamento </i> </label>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
-								</div>
-							<input type="date" class="form-control" id="data_pagamento" aria-describedby="data_pagamento" placeholder="Data pagamento" required>
-						</div>
-						</div>		
-					
-			  </div>
-			  <div class="modal-footer">
-					<input type="submit" class="btn btn-primary" value="Aggiungi il pagamento"a>
-				</form>
-			  </div>
-			</div>
-		  </div>
-		</div>
+		
+		
 		<script>
 			var max = new Date().getFullYear(),
 				min = max - 10,
