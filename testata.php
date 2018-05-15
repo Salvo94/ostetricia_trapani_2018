@@ -37,7 +37,7 @@
           Trasfermimenti
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="gestione_trasferimenti.php">Gestisci trasferimenti</a>
+          <a class="dropdown-item" href="gestione_trasferimenti.php">Visualizza trasferimenti</a>
         </div>
       </li>
      

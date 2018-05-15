@@ -3,7 +3,7 @@
 	$id = $_POST['id'];
 	
 	//query
-	$sql = "DELETE FROM utenti WHERE Id = ".$id;
+	$sql = "UPDATE utenti SET Attivo = 0 WHERE Id = ".$id;
 	echo ($sql);
 	$stmt = $dbh -> prepare($sql);
 	$stmt -> execute();

@@ -13,7 +13,6 @@
 					<br>
 				</div>
 			</div>
-			<div class="row border rounded p-3">
 			<?php
 				include "db_connessione.php";
 				$id = $_GET['id'];
@@ -23,6 +22,25 @@
 				$result = $stmt->fetch(PDO::FETCH_ASSOC);
 	
 			?>
+			<div class="row text-center">
+				<div class="col">
+				</div>
+				<div class="col">
+					<a href="gestione_pagamenti.php?id=<?php echo($id); ?>" ><i class="fa fa-credit-card"></i> Gestisci pagamenti</a>
+				</div>
+				<div class="col">
+					<a href="#" ><i class="fa fa-exchange-alt"></i>&nbsp Trasferisci</a>
+				</div>
+				<div class="col">
+					<a href="#" data-toggle="modal" data-target="#cancellaUtente" ><i class="fa fa-trash-alt"></i>&nbsp Cancella iscritto</a>
+				</div>
+				<div class="col">
+				</div>
+				
+			</div>
+			<br>
+			<div class="row border rounded p-3">
+			
 				<div class="col">
 					<div class="row">
 						<div class="col-4">
@@ -1060,4 +1078,39 @@
 			</div>
 		  </div>
 		</div>
+		
+		<div class="modal fade" id="cancellaUtente" tabindex="-1" role="dialog" aria-labelledby="cancellaUtente" aria-hidden="true">
+								  <div class="modal-dialog" role="document">
+									<div class="modal-content">
+									  <div class="modal-header">
+										<h5 class="modal-title" id="cancellaUtente">Conferma cancellazione iscritto</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										  <span aria-hidden="true">&times;</span>
+										</button>
+									  </div>
+									  <div class="modal-body">
+										
+											<div class="row">
+												<div class="col-md-6">
+													<form method="post" action ="elimina_iscritto_query.php">
+														<input type="hidden" value="<?php echo($id); ?>" name="id">
+														<div class="form-group">
+															<div class="input-group">
+																	<input class="btn btn-danger form-control" type="submit" value="SI" >
+															</div>
+														</div>
+													</form>
+												</div>			
+											<div class="col-md-6">
+													<div class="form-group">
+														<div class="input-group">
+															<button class="btn btn-primary form-control " data-dismiss="modal" >NO </button>
+														</div>
+													</div>
+												</div>
+											</div>				
+									  </div>
+									</div>
+								  </div>
+								</div>
 </html>

@@ -35,9 +35,16 @@
 					<?php
 						include "db_connessione.php";
 						$sql = "SELECT * FROM annualita ORDER BY Anno DESC";
+					
+						
 						foreach ($dbh -> query($sql) as $row){
 							$id_annualita_corrente = $row['Id'];
-							$sql2 = "SELECT * FROM utenti";
+							if(isset($_GET['id'])){
+									$sql2 = "SELECT * FROM utenti WHERE Id=".$_GET['id']."";
+							}else{
+								$sql2 = "SELECT * FROM utenti";
+							}
+							
 							foreach ($dbh -> query($sql2) as $row2){
 								$id_utente_corrente = $row2['Id'];
 								$sql3 = "SELECT * FROM pagamenti WHERE Id_utente =".$id_utente_corrente." AND Id_annualita = ".$id_annualita_corrente."";

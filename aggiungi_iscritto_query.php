@@ -55,10 +55,10 @@
 	
 	//query
 	$sql = "INSERT INTO utenti (Nome, Cognome, Data_nascita, Comune_nascita,Cittadinanza,Cod_fiscale, Data_iscrizione,
-								Nazione, Regione,Citta,Provincia,Cap,Indirizzo,Tel_fisso,Cellulare,Email,Pec,Numero_iscrizione)
+								Nazione, Regione,Citta,Provincia,Cap,Indirizzo,Tel_fisso,Cellulare,Email,Pec,Numero_iscrizione,Attivo)
 			VALUES('".$nome."','".$cognome."','".$data_nascita."','".$comune_nascita."','".$cittadinanza."','".$codice_fiscale."', now() ,'".$nazione."',
 					'".$regione."','".$citta."','".$provincia."',".$cap.",'".$indirizzo."',".$telefono_fisso.",".$telefono_cellulare.",
-					'".$email."','".$pec."',".$numero_iscrizione.")";
+					'".$email."','".$pec."',".$numero_iscrizione.",1)";
 	echo($sql);
 	$stmt = $dbh -> prepare($sql);
 	$stmt -> execute();
