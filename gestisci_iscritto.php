@@ -29,7 +29,7 @@
 					<a href="gestione_pagamenti.php?id=<?php echo($id); ?>" ><i class="fa fa-credit-card"></i> Gestisci pagamenti</a>
 				</div>
 				<div class="col">
-					<a href="#" ><i class="fa fa-exchange-alt"></i>&nbsp Trasferisci</a>
+					<a href="#"  data-toggle="modal" data-target="#trasferisciUtente"><i class="fa fa-exchange-alt"></i>&nbsp Trasferisci</a>
 				</div>
 				<div class="col">
 					<a href="#" data-toggle="modal" data-target="#cancellaUtente" ><i class="fa fa-trash-alt"></i>&nbsp Cancella iscritto</a>
@@ -1079,6 +1079,7 @@
 		  </div>
 		</div>
 		
+		<!-- modal fade per l'eliminazione dell'utente -->
 		<div class="modal fade" id="cancellaUtente" tabindex="-1" role="dialog" aria-labelledby="cancellaUtente" aria-hidden="true">
 								  <div class="modal-dialog" role="document">
 									<div class="modal-content">
@@ -1113,6 +1114,48 @@
 									</div>
 								  </div>
 								</div>
-								
+
+		<!-- modal fade per l'aggiunta del trasferimento -->
+		<div class="modal fade" id="trasferisciUtente" tabindex="-1" role="dialog" aria-labelledby="trasferisciUtente" aria-hidden="true">
+								  <div class="modal-dialog" role="document">
+									<div class="modal-content">
+									  <div class="modal-header">
+										<h5 class="modal-title" id="cancellaUtente">Trasferisci iscritto</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										  <span aria-hidden="true">&times;</span>
+										</button>
+									  </div>
+									  <div class="modal-body">										
+													<form method="post" action ="aggiungi_trasferimento_query.php">
+														<input type="hidden" value="<?php echo($id); ?>" name="id">
+														<div class="form-group">
+																<label><b>Collegio di partenza</b> </label>
+																<div class="input-group">
+																		<input type="text" class="form-control" id="collegio_partenza" name="collegio_partenza"   required>
+																</div>
+															</div>
+															<div class="form-group">
+																<label><b>Collegio di destinazione</b> </label>
+																<div class="input-group">
+																		<input type="text" class="form-control" id="collegio_destinazione" name="collegio_destinazione"   required>
+																</div>
+															</div>
+															<div class="form-group">
+																<label><b>Collegio di partenza</b> </label>
+																<div class="input-group">
+																		<input type="date" class="form-control" id="data_trasferimento" name="data_trasferimento"   required>															
+																</div>
+															</div>
+														<div class="form-group">
+															<div class="input-group">															
+																	<input class="btn btn-primary form-control" type="submit" value="Trasferisci" >
+															</div>
+														</div>
+													</form>																							
+																																			
+									  </div>
+									</div>
+								  </div>
+								</div>
 	
 </html>
