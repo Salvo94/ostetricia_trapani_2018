@@ -8,8 +8,8 @@
 						values(".$id_utente.",'".$collegio_partenza."','".$collegio_destinazione."','".$data_trasferimento."')";
 	$stmt = $dbh -> prepare($sql);
 	$stmt -> execute();
-	$sql = "UPDATE  utenti SET attivo = 2 WHERE Id = ".$id_utente."";
+	$sql = "UPDATE  utenti SET Attivo = 2 , Data_disiscrizione = NOW()WHERE Id = ".$id_utente."";
 	$stmt = $dbh -> prepare($sql);
 	$stmt -> execute();
-	Header("Location: gestione_trasferimenti.php");
+	echo($sql);
 ?>

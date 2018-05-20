@@ -194,7 +194,7 @@
 					
 			  </div>
 			  <div class="modal-footer">
-					<input type="submit" class="btn btn-primary" value="Aggiungi il pagamento"a>
+					<input type="submit" id="aggiungi_annualita" class="btn btn-primary" value="Aggiungi l'annualità">
 				</form>
 			  </div>
 			</div>
@@ -215,5 +215,44 @@
 				select.appendChild(opt);
 			}
 		</script>
-		
+		<script>
+			$(document).ready(function(){
+			var annualita = $('#anno').val();
+			
+			$.ajax({type:"POST",							
+						url: "controlla_annualita_ajax.php", 
+						dataType: "text", 
+						data:{
+							annualita:annualita,
+							
+                        },  
+						success: function(result){
+							if(result==0){
+								$('#aggiungi_annualita').attr("disabled","disabled");
+							}
+							else{
+								$('#aggiungi_annualita').removeAttr("disabled");
+							}
+						}});
+		});
+		$("#anno").change(function(){
+			var annualita = $('#anno').val();
+			
+			$.ajax({type:"POST",							
+						url: "controlla_annualita_ajax.php", 
+						dataType: "text", 
+						data:{
+							annualita:annualita,
+							
+                        },  
+						success: function(result){
+							if(result==0){
+								$('#aggiungi_annualita').attr("disabled","disabled");
+							}
+							else{
+								$('#aggiungi_annualita').removeAttr("disabled");
+							}
+						}});
+		});
+		</script>
 </html>

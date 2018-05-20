@@ -14,6 +14,9 @@
 	$codice_fiscale = $_POST['codice_fiscale'];
 	echo($codice_fiscale);
 	echo("<br>");
+	$sesso = $_POST['sesso'];
+	echo($sesso);
+	echo("<br>");
 	$data_nascita = $_POST['data_nascita'];
 	echo($data_nascita);
 	echo("<br>");
@@ -54,9 +57,9 @@
 	echo($numero_iscrizione);
 	
 	//query
-	$sql = "INSERT INTO utenti (Nome, Cognome, Data_nascita, Comune_nascita,Cittadinanza,Cod_fiscale, Data_iscrizione,
+	$sql = "INSERT INTO utenti (Nome, Cognome, Data_nascita,Sesso, Comune_nascita,Cittadinanza,Cod_fiscale, Data_iscrizione,
 								Nazione, Regione,Citta,Provincia,Cap,Indirizzo,Tel_fisso,Cellulare,Email,Pec,Numero_iscrizione,Attivo)
-			VALUES('".$nome."','".$cognome."','".$data_nascita."','".$comune_nascita."','".$cittadinanza."','".$codice_fiscale."', now() ,'".$nazione."',
+			VALUES('".$nome."','".$cognome."','".$data_nascita."','".$sesso."', '".$comune_nascita."','".$cittadinanza."','".$codice_fiscale."', now() ,'".$nazione."',
 					'".$regione."','".$citta."','".$provincia."',".$cap.",'".$indirizzo."',".$telefono_fisso.",".$telefono_cellulare.",
 					'".$email."','".$pec."',".$numero_iscrizione.",1)";
 	echo($sql);

@@ -3,7 +3,7 @@
 		<title> Gestionale albo </title>
 	</head>
 	<body>
-		<?php include "testata.php" ?>
+		<?php include "inclusioni.php" ?>
 		<div class = "container">
 			<div class="row">
 				
@@ -39,13 +39,13 @@
 				</button>
 			  </div>
 			  <div class="modal-body">
-				<form method="post" action ="jdfjdfs.php"a>
+				<form method="post" action ="login.php">
 					<div class="form-group">
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-user"> </i></span>
 							</div>
-								<input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Username">
+								<input type="text" class="form-control" id="username" name="username" aria-describedby="username" placeholder="Username">
 						</div>
 					</div>
 					<div class="form-group">
@@ -53,7 +53,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-key"> </i></span>
 							</div>
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+							<input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
 						</div>
 					</div>
 					

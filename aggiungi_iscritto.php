@@ -57,13 +57,16 @@
 					</div>
 					<div class="form-group">
 						<div class="input-group">
-						
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-id-card"></i></span>
 							</div>
-								<input type="text"  minlength="16" maxlength="16"  size="16" class="form-control" id="codfisc" aria-describedby="codfisc" placeholder="Codice fiscale" name="codice_fiscale" required>
+								<SELECT class="codice_fiscale" id="sesso" aria-describedby="sesso" name="sesso" required>
+									<option value="Maschio">Maschio</option>
+									<option value="Femmina">Femmina </option>
+								</SELECT>
 						</div>
 					</div>
+					
 					<div class="form-group">
 						<div class="input-group">
 							<div class="input-group-prepend">
@@ -73,6 +76,19 @@
 						</div>
 					</div>
 					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<div class="input-group">
+						
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-id-card"></i></span>
+							</div>
+								<input type="text"  minlength="16" maxlength="16"  size="16" class="form-control" id="codfisc" aria-describedby="codfisc" placeholder="Codice fiscale" name="codice_fiscale" required>
+						</div>
+					</div>
 				</div>
 			</div>
 			<br>
@@ -205,24 +221,64 @@
 				</div>
 			</div>
 			</form>
-		<button id="codfisc_calc"> calcola codice fiscale </button>
 		</div>
 		
 		<script>
 		$('.codice_fiscale').change(function(){
 			var data_nascita = new Date ($('#data_nascita').val());
+			if($('#sesso').val() == "Maschio") {
+				var maschio = true;
+			}else{
+					var maschio = false;
+			}
 				var person = new CodiceFiscale({
 					name: $('#nome').val(),
 					lastname: $('#cognome').val(),
 					day: data_nascita.getDate(),
 					month: data_nascita.getMonth() +1,
 					year: data_nascita.getYear(),
-					isMale: true,
+					isMale: maschio,
 					communeName: $('#comune_nascita').val()
 				});
 				$('#codfisc').val(person.taxCode());
 		});
 
+	</script>
+	<script>
+			$("#codfisc").change(function(){
+		
+			var cod_fiscale = $("#codfisc").val();
+			$.ajax({type:"POST",							
+						url: "controlla_codice_fiscale_ajax.php", 
+						dataType: "text", 
+						data:{
+							
+							cod_fiscale:cod_fiscale
+                        },  
+						success: function(result){
+							if(result == 0){
+								alert("Codice fiscale già presente nel database !");
+								 $("#codfisc").val("");
+							}
+						}});
+		});
+		$("#numero_iscrizione").change(function(){
+		
+			var numero_iscrizione = $("#numero_iscrizione").val();
+			$.ajax({type:"POST",							
+						url: "controlla_numero_iscrizione_ajax.php", 
+						dataType: "text", 
+						data:{
+							
+							numero_iscrizione:numero_iscrizione
+                        },  
+						success: function(result){
+							if(result == 0){
+								alert("Numero iscrizione già presente nel database !");
+								 $("#numero_iscrizione").val("");
+							}
+						}});
+		});
 	</script>
 	</body>
 </html>

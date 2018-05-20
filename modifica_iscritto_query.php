@@ -15,6 +15,9 @@
 	$codice_fiscale = $_POST['codice_fiscale'];
 	echo($codice_fiscale);
 	echo("<br>");
+	$sesso = $_POST['sesso'];
+	echo($sesso);
+	echo("<br>");
 	$data_nascita = $_POST['data_nascita'];
 	echo($data_nascita);
 	echo("<br>");
@@ -56,14 +59,14 @@
 	
 	//query
 	$sql = "UPDATE utenti 
-			SET Nome = '".$nome."', Cognome = '".$cognome."', Cod_Fiscale = '".$codice_fiscale."', Data_Nascita = '".$data_nascita."',
+			SET Nome = '".$nome."', Cognome = '".$cognome."', Cod_Fiscale = '".$codice_fiscale."',Sesso = '".$sesso."', Data_Nascita = '".$data_nascita."',
 			Comune_nascita = '".$comune_nascita."', Cittadinanza = '".$cittadinanza."', Nazione = '".$nazione."', Regione = '".$regione."', 
 			Citta = '".$citta."', Provincia = '".$provincia."', Cap = ".$cap.", Indirizzo = '".$indirizzo."' , Tel_Fisso = ".$telefono_fisso.",
 			Cellulare = ".$telefono_cellulare.", Email = '".$email."', Pec = '".$pec."', Numero_iscrizione = '".$numero_iscrizione."' WHERE Id = ".$id."";
 	echo($sql);
 	$stmt = $dbh -> prepare($sql);
 	$stmt -> execute();
-	//header("Location: gestisci_iscritto.php?id=".$id);	
+	header("Location: gestisci_iscritto.php?id=".$id);	
 	
 	
 ?>

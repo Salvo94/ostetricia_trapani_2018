@@ -57,7 +57,7 @@
 					</br>
 					<div class="row">
 						<div class="col-2">
-							<img src="img/prova.jpg" class="img-thumbnail"> </img>
+							<img src="img/no-picture.png" class="img-thumbnail"> </img>
 
 						</div>
 						<div class="col-2">
@@ -746,25 +746,7 @@
 								<input type="text" class="form-control" id="nome" value="<?php echo($result['Nome']); ?>" aria-describedby="nome" placeholder="Nome" name="nome" required>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1"><i class="fas fa-id-card"></i></span>
-							</div>
-								<input type="text" name="codice_fiscale"  minlength="16" maxlength="16"  size="16" value = "<?php echo($result['Cod_Fiscale']); ?>" class="form-control" id="codice_fiscale" aria-describedby="codfisc" placeholder="Codice fiscale" required>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marker"> </i></span>
-							</div>
-								<input type="text" value = "<?php echo($result['Comune_nascita']); ?>" class="form-control" id="comune_nascita"  aria-describedby="comune_nascita" placeholder="Comune di nascita" name="comune_nascita" required>
-						</div>
-					</div>
-				</div>
-	
-				<div class="col">
+					
 					<div class="form-group">
 						<div class="input-group">
 							<div class="input-group-prepend">
@@ -776,9 +758,33 @@
 					<div class="form-group">
 						<div class="input-group">
 							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marker"> </i></span>
+							</div>
+								<input type="text" value = "<?php echo($result['Comune_nascita']); ?>" class="form-control" id="comune_nascita"  aria-describedby="comune_nascita" placeholder="Comune di nascita" name="comune_nascita" required>
+						</div>
+					</div>
+				</div>
+	
+				<div class="col">
+					
+					
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-birthday-cake"></i></span>
 							</div>
 								<input type="date" class="form-control" id="datanascita" name="data_nascita" value="<?php echo($result['Data_Nascita']); ?>" aria-describedby="datanascita" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-id-card"></i></span>
+							</div>
+								<SELECT class="codice_fiscale" id="sesso" aria-describedby="sesso" name="sesso" required>
+									<option <?php if($result['Sesso'] == "Maschio"){echo("selected='true'");} ?> value="Maschio">Maschio</option>
+									<option <?php if($result['Sesso'] == "Femmina"){echo("selected='true'");} ?> value="Femmina">Femmina </option>
+								</SELECT>
 						</div>
 					</div>
 					<div class="form-group">
@@ -790,6 +796,18 @@
 						</div>
 					</div>
 					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-id-card"></i></span>
+							</div>
+								<input type="text" name="codice_fiscale"  minlength="16" maxlength="16"  size="16" value = "<?php echo($result['Cod_Fiscale']); ?>" class="form-control" id="codfisc" aria-describedby="codfisc" placeholder="Codice fiscale" required>
+						</div>
+					</div>
 				</div>
 			</div>
 			<br>
@@ -1157,5 +1175,48 @@
 									</div>
 								  </div>
 								</div>
-	
+	<script>
+			$("#codfisc").change(function(){
+			var codice_attuale ="<?php echo($result['Cod_Fiscale']); ?>";
+			var cod_fiscale = $("#codfisc").val();
+			if(codice_attuale != cod_fiscale){
+						$.ajax({type:"POST",							
+						url: "controlla_codice_fiscale_ajax.php", 
+						dataType: "text", 
+						data:{
+							
+							cod_fiscale:cod_fiscale
+                        },  
+						success: function(result){
+							if(result == 0){
+								alert("Codice fiscale già presente nel database !");
+								 $("#codfisc").val("");
+							}
+						}});
+			}
+		
+		});
+			
+		
+		$("#numero_iscrizione").change(function(){
+			var numero_attuale = <?php echo($result["Numero_iscrizione"]); ?>;
+			var numero_iscrizione = $("#numero_iscrizione").val();
+			if(numero_attuale != numero_iscrizione){
+				$.ajax({type:"POST",							
+						url: "controlla_numero_iscrizione_ajax.php", 
+						dataType: "text", 
+						data:{
+							
+							numero_iscrizione:numero_iscrizione
+                        },  
+						success: function(result){
+							if(result == 0){
+								alert("Numero iscrizione già presente nel database !");
+								 $("#numero_iscrizione").val("");
+							}
+						}});
+			}
+			
+		});
+	</script>
 </html>
