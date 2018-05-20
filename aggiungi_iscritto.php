@@ -23,42 +23,45 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-user"> </i></span>
 							</div>
-								<input type="text" class="form-control" id="nome"  aria-describedby="nome" placeholder="Nome" name="nome" required>
+								<input type="text" class="form-control codice_fiscale" id="nome"  aria-describedby="nome" placeholder="Nome" name="nome" required>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1"><i class="fas fa-id-card"></i></span>
-							</div>
-								<input type="text"  minlength="16" maxlength="16"  size="16" class="form-control" id="codfisc" aria-describedby="codfisc" placeholder="Codice fiscale" name="codice_fiscale" required>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marker"> </i></span>
-							</div>
-								<input type="text" class="form-control" id="comune_nascita"  aria-describedby="comune_nascita" placeholder="Comune di nascita" name="comune_nascita" required>
-						</div>
-					</div>
-				</div>
-	
-				<div class="col">
 					<div class="form-group">
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
 							</div>
-								<input type="text" class="form-control" id="cognome" aria-describedby="cognome" placeholder="Cognome" name="cognome" required>
+								<input type="text" class="form-control codice_fiscale" id="cognome" aria-describedby="cognome" placeholder="Cognome" name="cognome" required>
 						</div>
 					</div>	
 					<div class="form-group">
 						<div class="input-group">
 							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marker"> </i></span>
+							</div>
+								<input type="text" class="form-control codice_fiscale" id="comune_nascita"  aria-describedby="comune_nascita" placeholder="Comune di nascita" name="comune_nascita" required>
+						</div>
+					</div>
+				</div>
+	
+				<div class="col">
+					
+					
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1"><i class="fas fa-birthday-cake"></i></span>
 							</div>
-								<input type="date" class="form-control" id="data_nascita" aria-describedby="data_nascita" name="data_nascita" required>
+								<input type="date" class="form-control codice_fiscale" id="data_nascita" aria-describedby="data_nascita" name="data_nascita" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+						
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fas fa-id-card"></i></span>
+							</div>
+								<input type="text"  minlength="16" maxlength="16"  size="16" class="form-control" id="codfisc" aria-describedby="codfisc" placeholder="Codice fiscale" name="codice_fiscale" required>
 						</div>
 					</div>
 					<div class="form-group">
@@ -202,9 +205,24 @@
 				</div>
 			</div>
 			</form>
-		
+		<button id="codfisc_calc"> calcola codice fiscale </button>
 		</div>
 		
-		
+		<script>
+		$('.codice_fiscale').change(function(){
+			var data_nascita = new Date ($('#data_nascita').val());
+				var person = new CodiceFiscale({
+					name: $('#nome').val(),
+					lastname: $('#cognome').val(),
+					day: data_nascita.getDate(),
+					month: data_nascita.getMonth() +1,
+					year: data_nascita.getYear(),
+					isMale: true,
+					communeName: $('#comune_nascita').val()
+				});
+				$('#codfisc').val(person.taxCode());
+		});
+
+	</script>
 	</body>
 </html>
