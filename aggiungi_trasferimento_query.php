@@ -19,5 +19,5 @@
 			$stmt -> execute();
 	}
 
-	echo($sql);
+	Header("Location: gestisci_iscritto.php?id=".$id_utente."");
 ?>
