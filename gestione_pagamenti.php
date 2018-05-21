@@ -16,7 +16,30 @@
 			</br>
 			</br>
 			<div class="row">
-				<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#inserisciAnnualita"> <i class="fas fa-plus"> </i> Aggiungi annualità </a> </td>
+				<div class="col text-left custom-no-padding-left">
+					<b> Cataloga per anno </b> 
+					<SELECT id="selezione">
+						<option value="0"> Tutti gli anni </option>
+						<?php
+							include "db_connessione.php";
+							$sql = "SELECT distinct(Anno) FROM annualita ORDER BY Anno DESC";
+							foreach ($dbh -> query($sql) as $row){
+								echo("<option value='".$row['Anno']."'>".$row['Anno']."</option>");
+							}
+						?>
+					</SELECT>
+				</div>
+				<div class="col text-right">
+					<?php
+						if(isset($_GET['id'])){
+							
+						}else{
+							echo('					<a href="gestisci_iscritto.php" data-toggle="modal" data-target="#inserisciAnnualita"> <i class="fas fa-plus"> </i> Aggiungi annualità </a> ');
+						}
+					?>
+					
+				</div>
+				
 			</div>
 			<br>
 			<div class="row">
@@ -33,7 +56,7 @@
 						
 					</tr>
 					<?php
-						include "db_connessione.php";
+					
 						$sql = "SELECT * FROM annualita ORDER BY Anno DESC";
 					
 						
@@ -57,7 +80,7 @@
 												<td> '.$row2['Nome'].'  </td>
 												<td> '.$row2['Cognome'].' </td>
 												<td> '.$row2['Cod_Fiscale'].' </td>
-												<td> '.$row['Anno'].' </td>
+												<td class="cataloga"> '.$row['Anno'].' </td>
 												<td> '.$result['Data_pagamento'].' </td>
 												<td class="text-center">  <i class="far fa-check-square text-success"> </i></td>
 												<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#modifica_pagamento'.$result['Id'].'"> <i class="fas fa-edit"> </i> </a> </td>
@@ -117,7 +140,7 @@
 												<td> '.$row2['Nome'].'  </td>
 												<td> '.$row2['Cognome'].' </td>
 												<td> '.$row2['Cod_Fiscale'].' </td>
-												<td> '.$row['Anno'].' </td>
+												<td class="cataloga"> '.$row['Anno'].' </td>
 												<td> -  </td>
 												<td class="text-center">  <i class="far fa-square text-danger"> </i></td>
 												<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#aggiungiPagamento'.$result['Id'].'"> <i class="fas fa-edit"> </i> </a> </td>
@@ -201,8 +224,27 @@
 		  </div>
 		</div>
 		
-		
-		
+		<script>
+			$("#selezione").change(function(){
+				var selezione = $("#selezione").val().trim();
+				if(selezione == 0){
+					$(".cataloga").each(function(){					
+						$(this).parent().show();
+					});
+				}
+				else{
+					$(".cataloga").each(function(){
+						var current = $(this).html().trim();
+						if(current != selezione){
+							$(this).parent().hide();
+						}else{
+							$(this).parent().show();
+						}
+					});
+				}
+				
+			});
+		</script>
 		<script>
 			var max = new Date().getFullYear(),
 				min = max - 10,

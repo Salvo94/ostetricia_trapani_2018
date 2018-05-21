@@ -1,7 +1,13 @@
+body{
+	background-color:green;
+}
+
 .input-group>.input-group-prepend>.input-group-text {
 	width:42px!important;
 }
-
+.logo_image{
+	max-width:430px;
+}
 .pulsante-visualizza-foto{
 	border-color:#ced4da!important;
 }
@@ -15,6 +21,11 @@ body{
 	padding-bottom:180px;
 }
 
-	  .ui-datepicker-calendar {
+
+.ui-datepicker-calendar {
 			   display: none;
-			}
+}
+
+.custom-no-padding-left{
+	padding-left:0px!important;
+}

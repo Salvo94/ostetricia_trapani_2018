@@ -71,7 +71,7 @@
 																</div>
 															</div>
 															<div class="form-group">
-																<label><b>Collegio di partenza</b> </label>
+																<label><b>Data trasferimento</b> </label>
 																<div class="input-group">
 																		<input type="date" class="form-control" id="data_trasferimento" name="data_trasferimento" value="'.$row['Data_trasferimento'].'"   required>															
 																</div>

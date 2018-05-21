@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title> Gestionale albo </title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
 		<?php include "inclusioni.php" ?>
@@ -12,7 +13,7 @@
 					<br>
 					<br>
 					<br>
-					<img class="img-responsive" src="img/logo_collegio.jpg">
+					<img class="logo_image" src="img/logo_collegio.png">
 					<br>
 					<br>
 					<h4> Per utilizzare il gestionale si prega di effettuare l'accesso </h4>
@@ -60,7 +61,7 @@
 				
 			  </div>
 			  <div class="modal-footer">
-					<input type="submit" class="btn btn-secondary" value="Accedi"a>
+					<input type="submit" class="btn btn-secondary" value="Accedi">
 				</form>
 			  </div>
 			</div>

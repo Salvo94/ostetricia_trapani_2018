@@ -26,7 +26,7 @@ include "db_connessione.php";
 							$cognome_cerca = "";
 						}
 						if(trim($cod_fiscale)!=""){
-							$codice_fiscale_cerca = "AND Cod_Fiscale = '%".$cod_fiscale."%'";
+							$codice_fiscale_cerca = "AND Cod_Fiscale LIKE '%".$cod_fiscale."%'";
 							$controllo = $controllo +1;
 						}else{
 							$codice_fiscale_cerca = "";
