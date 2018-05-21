@@ -36,7 +36,7 @@ include "db_connessione.php";
 							$sql = "SELECT  COUNT(Id) FROM utenti WHERE Attivo = 1 ".$numero." ".$nome_cerca." ".$cognome_cerca." ".$codice_fiscale_cerca."";
 							$count = $dbh -> query($sql)->fetchColumn();
 							if($count > 0){
-								$sql = "SELECT  * FROM utenti WHERE Attivo = 1 ".$numero." ".$nome_cerca." ".$cognome_cerca." ".$codice_fiscale_cerca."";
+								$sql = "SELECT  * FROM utenti WHERE Attivo = 1 ".$numero." ".$nome_cerca." ".$cognome_cerca." ".$codice_fiscale_cerca." ORDER BY Cognome";
 								$result = array();
 									array_push($result,"<tr>
 									<th> N. iscrizione </th>

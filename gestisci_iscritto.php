@@ -1147,6 +1147,15 @@
 													<form method="post" action ="aggiungi_trasferimento_query.php">
 														<input type="hidden" value="<?php echo($id); ?>" name="id">
 														<div class="form-group">
+																<label><b>Tipo trasferimento</b> </label>
+																<div class="input-group">
+																		<SELECT name="tipo_trasferimento" >
+																			<option value="2"> In uscita </option>
+																			<option value="3"> In entrata </option>
+																		</SELECT>
+																</div>
+															</div>
+														<div class="form-group">
 																<label><b>Collegio di partenza</b> </label>
 																<div class="input-group">
 																		<input type="text" class="form-control" id="collegio_partenza" name="collegio_partenza"   required>

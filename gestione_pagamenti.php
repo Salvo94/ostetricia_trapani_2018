@@ -143,9 +143,9 @@
 												<td class="cataloga"> '.$row['Anno'].' </td>
 												<td> -  </td>
 												<td class="text-center">  <i class="far fa-square text-danger"> </i></td>
-												<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#aggiungiPagamento'.$result['Id'].'"> <i class="fas fa-edit"> </i> </a> </td>
+												<td class="text-center"> <a href="gestisci_iscritto.php" data-toggle="modal" data-target="#aggiungiPagamento'.$id_utente_corrente.'_'.$id_annualita_corrente.'"> <i class="fas fa-edit"> </i> </a> </td>
 												<!-- modal fade per inserimento pagamento-->
-													<div class="modal fade" id="aggiungiPagamento'.$result['Id'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+													<div class="modal fade" id="aggiungiPagamento'.$id_utente_corrente.'_'.$id_annualita_corrente.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 												  <div class="modal-dialog" role="document">
 													<div class="modal-content">
 													  <div class="modal-header">

@@ -36,7 +36,7 @@ include "db_connessione.php";
 							$sql = "SELECT  COUNT(Id) FROM utenti WHERE Attivo >=0 ".$numero." ".$nome_cerca." ".$cognome_cerca." ".$codice_fiscale_cerca."";
 							$count = $dbh -> query($sql)->fetchColumn();
 							if($count > 0){
-								$sql = "SELECT  * FROM utenti WHERE Attivo >=0 ".$numero." ".$nome_cerca." ".$cognome_cerca." ".$codice_fiscale_cerca." ORDER BY Attivo ASC";
+								$sql = "SELECT  * FROM utenti WHERE Attivo >=0 ".$numero." ".$nome_cerca." ".$cognome_cerca." ".$codice_fiscale_cerca." ORDER BY Cognome,Attivo ASC";
 								$result = array();
 									array_push($result,"<tr>
 									<th> N. iscrizione </th>
@@ -46,17 +46,24 @@ include "db_connessione.php";
 									<th> Stato </th>
 									<th> Data iscrizione </th>
 									<th> Data cancellazione / trasferimento </th>
-										
+									<th> Ripristina </th>
 								</tr>");
 								foreach ($dbh -> query($sql) as $row){
 									if($row['Attivo'] == 0){
-										$stato = "Cancellato";
+										$stato = "<span class='text-danger'>Cancellato </span>";
+										$ripristino = '<a href="#" data-toggle="modal" data-target="#ripristinaUtente'.$row['Id'].'" ><i class="fas fa-redo"></i></a>';
 									}
 									if($row['Attivo'] == 1){
-										$stato = "Iscritto";
+										$stato = "<span class='text-success'> Iscritto </span>";
+										$ripristino = "-";
 									}
 									if($row['Attivo'] == 2){
-										$stato = "Trasferito";
+										$stato = "<span class='text-info'> Trasferito in uscita </span>";
+										$ripristino = '<a href="#" data-toggle="modal" data-target="#ripristinaUtente'.$row['Id'].'" ><i class="fas fa-redo"></i></a>';
+									}
+									if($row['Attivo'] == 3){
+										$stato = "<span class='text-secondary'> Trasferito in entrata </span>";
+										$ripristino = '<a href="#" data-toggle="modal" data-target="#ripristinaUtente'.$row['Id'].'" ><i class="fas fa-redo"></i></a>';
 									}
 									
 									if($row['Data_disiscrizione']=="0000-00-00"){
@@ -73,11 +80,47 @@ include "db_connessione.php";
 											<td> '.$stato.' </td>
 											<td> '.$row['Data_iscrizione'].' </td>
 											<td> '.$data.' </td>
-										
-										
-										</tr>';
+											<td class="text-center">'.$ripristino.'	 </td>
+										</tr>
+							
+										';
 										array_push($result,$element);
-						
+									$element = '			<div class="modal fade" id="ripristinaUtente'.$row['Id'].'" tabindex="-1" role="dialog" aria-labelledby="ripristinaUtente" aria-hidden="true">
+												  <div class="modal-dialog" role="document">
+													<div class="modal-content">
+													  <div class="modal-header">
+														<h5 class="modal-title" id="ripristina_utente">Conferma ripristino iscritto</h5>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														  <span aria-hidden="true">&times;</span>
+														</button>
+													  </div>
+													  <div class="modal-body">
+														
+															<div class="row">
+																<div class="col-md-6">
+																	<form method="post" action ="ripristina_iscritto_query.php">
+																		<input type="hidden" value="'.$row['Id'].'" name="id">
+																		<div class="form-group">
+																			<div class="input-group">
+																					<input class="btn btn-danger form-control" type="submit" value="SI" >
+																			</div>
+																		</div>
+																	</form>
+																</div>			
+															<div class="col-md-6">
+																	<div class="form-group">
+																		<div class="input-group">
+																			<button class="btn btn-primary form-control " data-dismiss="modal" >NO </button>
+																		</div>
+																	</div>
+																</div>
+															</div>				
+													  </div>
+													</div>
+												  </div>
+												</div>
+										';
+										array_push($result,$element);
 								}
 							}else{
 								$result ="<tr class='text-center'> <td colspan='5'><h2> Nessun iscritto trovato con questi parametri </td> </tr></h2>";

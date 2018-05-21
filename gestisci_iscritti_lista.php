@@ -2,9 +2,11 @@
 	<head>
 		<title> Gestionale albo </title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+	
 	</head>
 	<body>
 		<?php include "testata.php" ?>
+			<script src="sorttable.js"></script>
 		<div class = "container">
 			<div class="row">
 				<div class="col text-center">
@@ -16,7 +18,7 @@
 			</br>
 			</br>
 			<div class="row">
-				<table class="table table-striped">
+				<table class="table sortable table-striped">
 					<tr>
 						<th> N. iscrizione </th>
 						<th> Nome </th>
@@ -27,7 +29,7 @@
 					</tr>
 					<?php
 						include "db_connessione.php";
-						$sql = "SELECT * FROM utenti WHERE Attivo = 1";
+						$sql = "SELECT * FROM utenti WHERE Attivo = 1 OR Attivo = 3 ORDER BY Cognome";
 						foreach ($dbh -> query($sql) as $row){
 							echo('<tr>
 									<td> '.$row['Numero_iscrizione'].'</td>
