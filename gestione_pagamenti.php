@@ -246,7 +246,7 @@
 			});
 		</script>
 		<script>
-			var max = new Date().getFullYear(),
+			var max = new Date().getFullYear()+1,
 				min = max - 10,
 				select = document.getElementById('anno');
 
