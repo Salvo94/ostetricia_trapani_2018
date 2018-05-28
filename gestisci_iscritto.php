@@ -26,7 +26,7 @@
 				<div class="col">
 				</div>
 				<div class="col">
-					<a href="gestione_pagamenti.php?id=<?php echo($id); ?>" ><i class="fa fa-credit-card"></i> Gestisci pagamenti</a>
+					<a href="gestione_pagamenti_iscritto.php?id=<?php echo($id); ?>" ><i class="fa fa-credit-card"></i> Gestisci pagamenti</a>
 				</div>
 				<div class="col">
 					<a href="#"  data-toggle="modal" data-target="#trasferisciUtente"><i class="fa fa-exchange-alt"></i>&nbsp Trasferisci</a>
@@ -92,6 +92,11 @@
 							<div class="row">
 								<div class="col">
 									<p> <b>Numero iscrizione:</br> </b><?php echo($result['Numero_iscrizione']); ?> </p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<p> <b>Data iscrizione Albo:<br></b><?php echo($result['Data_iscrizione']); ?>  </p>
 								</div>
 							</div>
 						</div>
@@ -904,6 +909,18 @@
 					</div>
 				</div>
 			</div>
+			<div class="row text-center">
+				<div class="col">
+					<label><b>Data iscrizione all'albo</b></label>
+					<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="far fa-calendar-check"></i></span>
+							</div>
+								<input type="date" class="form-control" id="data_iscrizione" aria-describedby="data_iscrizione" placeholder="Data iscrizione" name="data_iscrizione" value="<?php echo($result['Data_iscrizione']); ?>" >
+					</div>
+				</div>
+			</div>
+			<br>
 			<div class="row">
 				<div class="col">
 					<div class="form-group">

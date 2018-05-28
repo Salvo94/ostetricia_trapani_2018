@@ -55,14 +55,16 @@
 	echo($pec);
 	echo("<br>");
 	$numero_iscrizione = $_POST['numero_iscrizione'];
-	echo($numero_iscrizione);
+	echo($numero_iscrizione);	
+	$data_iscrizione = $_POST['data_iscrizione'];
+	echo($data_iscrizione);
 	
 	//query
-	$sql = "UPDATE utenti 
-			SET Nome = '".$nome."', Cognome = '".$cognome."', Cod_Fiscale = '".$codice_fiscale."',Sesso = '".$sesso."', Data_Nascita = '".$data_nascita."',
-			Comune_nascita = '".$comune_nascita."', Cittadinanza = '".$cittadinanza."', Nazione = '".$nazione."', Regione = '".$regione."', 
-			Citta = '".$citta."', Provincia = '".$provincia."', Cap = ".$cap.", Indirizzo = '".$indirizzo."' , Tel_Fisso = ".$telefono_fisso.",
-			Cellulare = ".$telefono_cellulare.", Email = '".$email."', Pec = '".$pec."', Numero_iscrizione = '".$numero_iscrizione."' WHERE Id = ".$id."";
+	$sql = 'UPDATE utenti 
+			SET Nome = "'.$nome.'", Cognome = "'.$cognome.'", Cod_Fiscale = "'.$codice_fiscale.'",Sesso = "'.$sesso.'", Data_Nascita = "'.$data_nascita.'",
+			Comune_nascita = "'.$comune_nascita.'", Cittadinanza = "'.$cittadinanza.'", Nazione = "'.$nazione.'", Regione = "'.$regione.'", 
+			Citta = "'.$citta.'", Provincia = "'.$provincia.'", Cap = '.$cap.', Indirizzo = "'.$indirizzo.'", Tel_Fisso = "'.$telefono_fisso.'",
+			Cellulare = "'.$telefono_cellulare.'", Email = "'.$email.'", Pec = "'.$pec.'", Numero_iscrizione = "'.$numero_iscrizione.'", Data_iscrizione = "'.$data_iscrizione.'" WHERE Id = '.$id.'';
 	echo($sql);
 	$stmt = $dbh -> prepare($sql);
 	$stmt -> execute();

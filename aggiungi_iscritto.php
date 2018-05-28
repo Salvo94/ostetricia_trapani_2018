@@ -186,6 +186,18 @@
 				</div>
 			</div>
 			<br>
+			<div class="row text-center">
+				<div class="col">
+					<label><b>Data iscrizione all'albo</b></label>
+					<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="far fa-calendar-check"></i></span>
+							</div>
+								<input type="date" class="form-control" id="data_iscrizione" aria-describedby="data_iscrizione" placeholder="Data iscrizione" name="data_iscrizione" >
+					</div>
+				</div>
+			</div>
+			<br>
 			<div class="row">
 				<div class="col">
 					<div class="form-group">

@@ -12,7 +12,5 @@
 	echo($sql);
 	$stmt = $dbh -> prepare($sql);
 	$stmt -> execute();
-	header("Location: gestione_pagamenti.php");
-	
-	
+	header("Location: gestione_pagamenti_iscritto.php?id=".$id_utente."");
 ?>
